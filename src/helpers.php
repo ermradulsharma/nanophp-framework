@@ -197,7 +197,8 @@ if (!function_exists('base_path')) {
      */
     function base_path(string $path = ''): string
     {
-        return __DIR__ . '/../../../' . ($path ? DIRECTORY_SEPARATOR . $path : '');
+        $basePath = $GLOBALS['__nano_base_path'] ?? dirname(__DIR__, 4);
+        return $basePath . ($path ? DIRECTORY_SEPARATOR . $path : '');
     }
 }
 
