@@ -32,9 +32,12 @@ class Application
         \Nano\Framework\Middleware\CsrfMiddleware::class,
     ];
 
-    public function __construct(Container $container)
+    private string $basePath;
+
+    public function __construct(Container $container, string $basePath = null)
     {
         $this->container = $container;
+        $this->basePath = $basePath ?? dirname(__DIR__, 4); // Default to 4 levels up from vendor/nanophp/framework/src
         static::$instance = $this;
         $GLOBALS['__nano_app_instance'] = $this;
 
@@ -128,7 +131,7 @@ class Application
             $router = $this->container->get(\Nano\Framework\Router::class);
 
             // Require routes (they now use Facades)
-            $routesPath = base_path('routes/web.php');
+            $routesPath = $this->basePath . '/routes/web.php';
             if (file_exists($routesPath)) {
                 require $routesPath;
             }
