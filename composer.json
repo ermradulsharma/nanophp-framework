@@ -21,6 +21,7 @@
         "illuminate/translation": "^11.0",
         "illuminate/validation": "^11.0",
         "illuminate/view": "^11.0",
+        "dragonmantank/cron-expression": "^3.6",
         "league/flysystem": "^3.0",
         "laminas/laminas-diactoros": "^3.0",
         "laminas/laminas-httphandlerrunner": "^2.0",
@@ -29,6 +30,7 @@
         "php-di/php-di": "^7.0",
         "psr/http-server-middleware": "^1.0",
         "symfony/console": "^7.4",
+        "symfony/process": "^7.4",
         "vlucas/phpdotenv": "^5.6"
     }
 }
