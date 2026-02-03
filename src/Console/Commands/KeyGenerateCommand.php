@@ -36,7 +36,7 @@ class KeyGenerateCommand extends Command
 
     protected function setKeyInEnvironmentFile(string $key): bool
     {
-        $path = __DIR__ . '/../../../../../../../.env';
+        $path = base_path('.env');
         if (!file_exists($path)) {
             return false;
         }
@@ -53,4 +53,3 @@ class KeyGenerateCommand extends Command
         return file_put_contents($path, $content) !== false;
     }
 }
-
