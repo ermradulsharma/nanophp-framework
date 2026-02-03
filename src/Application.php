@@ -128,7 +128,10 @@ class Application
             $router = $this->container->get(\Nano\Framework\Router::class);
 
             // Require routes (they now use Facades)
-            require __DIR__ . '/../../../routes/web.php';
+            $routesPath = base_path('routes/web.php');
+            if (file_exists($routesPath)) {
+                require $routesPath;
+            }
 
             $router->registerRoutes($r);
         });
